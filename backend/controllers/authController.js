@@ -2,21 +2,30 @@ const db = require("../config/db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-// REGISTER (hanya untuk owner pertama atau seed)
+// REGISTER (hanya untuk owner)
 exports.register = async (req, res) => {
   try {
-    const { username, password, role } = req.body;
+    const { account_code, name_account, password, role_id } = req.body;
 
+    // hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // insert user
     await db.query(
-      "INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
-      [username, hashedPassword, role || "admin"]
+      `INSERT INTO user 
+      (account_code, name_account, password, role_id) 
+      VALUES (?, ?, ?, ?)`,
+      [account_code, name_account, hashedPassword, role_id]
     );
 
-    res.json({ message: "User berhasil dibuat" });
+    res.json({
+      message: "User berhasil dibuat"
+    });
+
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({
+      error: err.message
+    });
   }
 };
 

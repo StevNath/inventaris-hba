@@ -15,6 +15,7 @@ exports.getAllTransactions = async (req, res) => {
             FROM transactions t
             JOIN users u ON t.id_account = u.id_account
             JOIN products p ON t.id_produk = p.id_produk 
+            ORDER BY t.tanggal DESC
             `)
         res.json(rows);
     } catch (err) {

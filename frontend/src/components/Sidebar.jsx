@@ -14,13 +14,18 @@ const menuItems = [
   {
     name: "Transaksi",
     path: "/transaction",
-    roles: ["owner", "admin"],
+    roles: ["owner", "admin", "auditor"],
   },
   {
-    name: "Manajemen Akun",
-    path: "/account",
-    roles: ["owner"],
+    name: "Edit Akun",
+    path: "/account/edit",
+    roles: ["owner", "admin", "auditor"],
   },
+  {
+    name: "Buat Akun",
+    path: "/account/create",
+    roles: ["owner"],
+  }
 ];
 
 export default function Sidebar() {
@@ -41,7 +46,7 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className="w-64 h-screen bg-black text-white p-4 flex flex-col">
+    <aside className="w-64 h-screen bg-blue-900 text-white p-4 flex flex-col">
       <div>
         <h1 className="text-2xl font-bold mb-6">
           Inventaris HBA
@@ -52,7 +57,7 @@ export default function Sidebar() {
             <Link
               key={item.path}
               to={item.path}
-              className="block px-4 py-2 rounded hover:bg-gray-800"
+              className="block px-4 py-2 rounded hover:bg-blue-700"
             >
               {item.name}
             </Link>

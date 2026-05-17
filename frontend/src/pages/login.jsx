@@ -6,7 +6,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    account_code: "",
+    name_account: "",
     password: "",
   });
 
@@ -18,10 +18,11 @@ export default function Login() {
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("role", res.data.user.role);
+      localStorage.setItem("name_account", res.data.user.name_account);
 
       navigate("/dashboard");
     } catch (err) {
-      alert("Kode akun atau password salah");
+      alert("Nama akun atau password salah");
     }
   }
 
@@ -35,10 +36,10 @@ export default function Login() {
 
         <input
           type="text"
-          placeholder="Kode Akun"
-          value={form.account_code}
+          placeholder="Nama Akun"
+          value={form.name_account}
           onChange={(e) =>
-            setForm({ ...form, account_code: e.target.value })
+            setForm({ ...form, name_account: e.target.value })
           }
           className="border-2 border-gray-300 rounded-md px-4 py-2"
         />

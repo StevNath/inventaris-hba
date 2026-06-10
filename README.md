@@ -147,26 +147,6 @@ npm run lint     # Jalankan ESLint
 npm run preview  # Preview production build
 ```
 
-## 🤝 Kontribusi
-
-Untuk berkontribusi pada proyek ini:
-
-1. Fork repository ini
-2. Buat branch feature (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan Anda (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buka Pull Request
-
-## 📄 Lisensi
-
-Proyek ini menggunakan lisensi ISC. Lihat file LICENSE untuk detail lebih lanjut.
-
-## ✉️ Kontak & Support
-
-Jika ada pertanyaan atau masalah, silakan buat issue di repository ini atau hubungi developer.
-
----
-
 **Dibuat oleh:** [StevNath](https://github.com/StevNath)
 
 **Last Updated:** 2026-06-10

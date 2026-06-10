@@ -1,30 +1,30 @@
 # Inventaris HBA
 
-Sistem manajemen inventaris untuk HBA dengan teknologi modern dan responsif.
+A modern and responsive inventory management system for HBA.
 
-## 📋 Deskripsi Proyek
+## 📋 Project Description
 
-**Inventaris HBA** adalah aplikasi web full-stack yang dirancang untuk mengelola inventaris dengan mudah dan efisien. Aplikasi ini dilengkapi dengan fitur autentikasi, manajemen data, dan antarmuka pengguna yang intuitif.
+**Inventaris HBA** is a full-stack web application designed to manage inventory easily and efficiently. The application is equipped with authentication features, data management, and a user-friendly interface.
 
-## 🛠️ Teknologi yang Digunakan
+## 🛠️ Technology Stack
 
 ### Backend
-- **Express.js** - Web framework untuk Node.js
-- **MySQL2** - Database relasional
-- **JWT** - Autentikasi berbasis token
-- **Bcrypt** - Enkripsi password
+- **Express.js** - Web framework for Node.js
+- **MySQL2** - Relational database
+- **JWT** - Token-based authentication
+- **Bcrypt** - Password encryption
 - **CORS** - Cross-Origin Resource Sharing
-- **Dotenv** - Manajemen variabel environment
+- **Dotenv** - Environment variables management
 
 ### Frontend
-- **React 19** - Library UI
-- **Vite** - Build tool modern
-- **React Router** - Navigation dan routing
+- **React 19** - UI library
+- **Vite** - Modern build tool
+- **React Router** - Navigation and routing
 - **Axios** - HTTP client
 - **Tailwind CSS** - Styling framework
 - **ESLint** - Code quality tool
 
-## 📁 Struktur Proyek
+## 📁 Project Structure
 
 ```
 inventaris-hba/
@@ -35,19 +35,19 @@ inventaris-hba/
 │   ├── package.json
 │   ├── vite.config.js
 │   └── ...
-└── README.md         # File dokumentasi ini
+└── README.md         # Documentation file
 ```
 
-## 🚀 Cara Instalasi dan Setup
+## 🚀 Installation and Setup
 
 ### Prerequisites
-- Node.js (v14 atau lebih tinggi)
-- npm atau yarn
+- Node.js (v14 or higher)
+- npm or yarn
 - MySQL Server
 
 ### Backend Setup
 
-1. Masuk ke direktori backend:
+1. Navigate to the backend directory:
 ```bash
 cd backend
 ```
@@ -57,7 +57,7 @@ cd backend
 npm install
 ```
 
-3. Buat file `.env` di folder backend:
+3. Create a `.env` file in the backend folder:
 ```env
 PORT=3000
 DB_HOST=localhost
@@ -67,16 +67,16 @@ DB_NAME=inventaris_hba
 JWT_SECRET=your_secret_key
 ```
 
-4. Jalankan server:
+4. Run the server:
 ```bash
 npm start
 ```
 
-Server akan berjalan di `http://localhost:3000`
+The server will run at `http://localhost:3000`
 
 ### Frontend Setup
 
-1. Masuk ke direktori frontend:
+1. Navigate to the frontend directory:
 ```bash
 cd frontend
 ```
@@ -86,67 +86,67 @@ cd frontend
 npm install
 ```
 
-3. Buat file `.env` (jika diperlukan):
+3. Create a `.env` file (if needed):
 ```env
 VITE_API_URL=http://localhost:3000
 ```
 
-4. Jalankan development server:
+4. Run the development server:
 ```bash
 npm run dev
 ```
 
-5. Untuk production build:
+5. For production build:
 ```bash
 npm run build
 ```
 
-Aplikasi akan berjalan di `http://localhost:5173`
+The application will run at `http://localhost:5173`
 
-## 🔑 Fitur Utama
+## 🔑 Key Features
 
-- ✅ Autentikasi pengguna dengan JWT
-- ✅ Password terenkripsi dengan Bcrypt
-- ✅ CORS support untuk komunikasi lintas domain
-- ✅ Database MySQL yang terstruktur
-- ✅ Interface responsif dengan Tailwind CSS
-- ✅ Navigasi halaman dengan React Router
+- ✅ User authentication with JWT
+- ✅ Password encrypted with Bcrypt
+- ✅ CORS support for cross-domain communication
+- ✅ Structured MySQL database
+- ✅ Responsive interface with Tailwind CSS
+- ✅ Page navigation with React Router
 
-## 📊 API Endpoints (Contoh)
+## 📊 API Endpoints (Example)
 
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| POST | `/api/auth/login` | Login pengguna |
-| POST | `/api/auth/register` | Registrasi pengguna |
-| GET | `/api/inventory` | Mendapatkan daftar inventaris |
-| POST | `/api/inventory` | Menambah item inventaris |
-| PUT | `/api/inventory/:id` | Mengubah item inventaris |
-| DELETE | `/api/inventory/:id` | Menghapus item inventaris |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/login` | User login |
+| POST | `/api/auth/register` | User registration |
+| GET | `/api/inventory` | Get inventory list |
+| POST | `/api/inventory` | Add inventory item |
+| PUT | `/api/inventory/:id` | Update inventory item |
+| DELETE | `/api/inventory/:id` | Delete inventory item |
 
-*Sesuaikan dengan endpoint yang sebenarnya*
+*Adjust according to your actual endpoints*
 
-## 🔒 Keamanan
+## 🔒 Security
 
-- Password di-hash menggunakan Bcrypt
-- Autentikasi menggunakan JWT token
-- CORS dikonfigurasi untuk keamanan
-- Environment variables untuk informasi sensitif
+- Passwords are hashed using Bcrypt
+- Authentication using JWT tokens
+- CORS configured for security
+- Environment variables for sensitive information
 
 ## 📝 Scripts
 
 ### Backend
 ```bash
-npm test    # Menjalankan test
+npm start   # Run the server
 ```
 
 ### Frontend
 ```bash
 npm run dev      # Development server
-npm run build    # Build untuk production
-npm run lint     # Jalankan ESLint
+npm run build    # Build for production
+npm run lint     # Run ESLint
 npm run preview  # Preview production build
 ```
 
-**Dibuat oleh:** [StevNath](https://github.com/StevNath)
+**Created by:** [StevNath](https://github.com/StevNath)
 
 **Last Updated:** 2026-06-10

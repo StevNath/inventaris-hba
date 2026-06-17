@@ -27,30 +27,13 @@ exports.getProductById = async (req, res) => {
 // tambah produk baru
 exports.createProduct = async (req, res) => {
   try {
-    const { id_produk, nama_produk, satuan, jumlah } = req.body;
+    const { id_produk, nama_produk, satuan } = req.body;
 
-    const id_account = req.user.id_account;
-
-    // insert product
-    const [result] = await db.query(
+    await db.query(
       `INSERT INTO products
       (id_produk, nama_produk, satuan, jumlah)
       VALUES (?, ?, ?, ?)`,
-      [id_produk, nama_produk, satuan, jumlah]
-    );
-    
-    // insert transaction awal
-    await db.query(
-      `INSERT INTO transactions
-      (id_produk, id_account, tipe, jumlah, stok_akhir)
-      VALUES (?, ?, ?, ?, ?)`,
-      [
-        id_produk,
-        id_account,
-        "masuk",
-        jumlah,
-        jumlah
-      ]
+      [id_produk, nama_produk, satuan, 0]
     );
 
     res.json({

@@ -1,100 +1,70 @@
 # Inventaris HBA
 
-A modern and responsive inventory management system for HBA with predictive analytics capabilities.
+Inventaris HBA is a full-stack inventory management application built to help manage products, transactions, and inventory prediction more efficiently.
 
-## 📋 Project Description
+## Overview
 
-**Inventaris HBA** is a full-stack web application designed to manage inventory easily and efficiently. The application is equipped with authentication features, data management, predictive analytics, and a user-friendly interface. Built with modern technologies for optimal performance and user experience.
+This repository contains three main parts:
+- **backend/**: Express.js + MySQL2 API for authentication, products, transactions, and predictions
+- **frontend/**: React 19 + Vite user interface
+- **backend/model/**: Machine learning assets and dependencies for inventory prediction
 
-## 🛠️ Technology Stack
+## Tech Stack
 
 ### Backend
-- **Express.js** - Web framework for Node.js
-- **MySQL2** - Relational database
-- **JWT** - Token-based authentication
-- **Bcrypt** - Password encryption
-- **CORS** - Cross-Origin Resource Sharing
-- **Dotenv** - Environment variables management
+- Express.js
+- MySQL2
+- JSON Web Token (JWT)
+- Bcrypt
+- CORS
+- Dotenv
 
 ### Frontend
-- **React 19** - UI library
-- **Vite** - Modern build tool
-- **React Router** - Navigation and routing
-- **Axios** - HTTP client
-- **Tailwind CSS** - Styling framework
-- **ESLint** - Code quality tool
+- React 19
+- Vite
+- React Router DOM
+- Axios
+- Tailwind CSS v4
+- ESLint
 
-### Machine Learning / Prediction
-- **Python** - Programming language
-- **Scikit-learn** - Machine learning library
-- **Pandas** - Data manipulation
-- **NumPy** - Numerical computing
-- **Joblib** - Model serialization
+### Machine Learning
+- Python
+- Scikit-learn
+- Pandas
+- NumPy
+- Joblib
 
-## 📁 Project Structure
+## Project Structure
 
-```
+```text
 inventaris-hba/
-├── backend/                      # Node.js Express server
-│   ├── controllers/              # Business logic controllers
-│   │   ├── authController.js     # Authentication controller
-│   │   ├── productController.js  # Product management
-│   │   ├── transactionController.js  # Transaction handling
-│   │   └── predictionController.js   # Prediction logic
-│   ├── routes/                   # API route definitions
-│   │   ├── authRoutes.js         # Auth endpoints
-│   │   ├── productRoutes.js      # Product endpoints
-│   │   ├── transactionRoutes.js  # Transaction endpoints
-│   │   └── predictionRoutes.js   # Prediction endpoints
-│   ├── middleware/               # Express middleware
-│   │   ├── auth.js               # JWT authentication middleware
-│   │   └── role.js               # Role-based access control
-│   ├── config/                   # Configuration files
-│   ├── package.json              # Backend dependencies
-│   ├── server.js                 # Server entry point
-│   └── .env                      # Environment variables (local)
-│
-├── frontend/                     # React + Vite application
-│   ├── src/                      # Source code
-│   ├── routes/                   # Page routing
-│   ├── public/                   # Static assets
-│   ├── package.json              # Frontend dependencies
-│   ├── vite.config.js            # Vite configuration
-│   ├── eslint.config.js          # ESLint rules
-│   ├── index.html                # HTML entry point
-│   └── .env                      # Environment variables (local)
-│
-├── model/                        # Machine Learning Model
-│   ├── saved_model/              # Trained model files
-│   │   └── model.pkl             # Serialized model
-│   ├── predict.py                # Prediction script
-│   ├── requirements.txt          # Python dependencies
-│   └── .gitignore
-│
-└── README.md                     # Documentation file
+├── backend/
+│   ├── model/
+│   │   ├── saved_model/
+│   │   │   └── model.pkl
+│   │   ├── predict.py
+│   │   └── requirements.txt
+│   ├── package.json
+│   └── ...
+├── frontend/
+│   ├── package.json
+│   └── ...
+└── README.md
 ```
 
-## 🚀 Installation and Setup
+## Local Setup
 
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
-- MySQL Server
-- Python 3.8+ (for prediction model)
+### 1) Backend
 
-### Backend Setup
+Install dependencies:
 
-1. Navigate to the backend directory:
 ```bash
 cd backend
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Create a `.env` file in the backend folder:
+Create a `.env` file in the `backend/` folder:
+
 ```env
 PORT=3000
 DB_HOST=localhost
@@ -104,155 +74,108 @@ DB_NAME=inventaris_hba
 JWT_SECRET=your_secret_key
 ```
 
-4. Run the server:
+Run the server:
+
 ```bash
 npm start
 ```
 
-The server will run at `http://localhost:3000`
+> Note: make sure a `start` script exists in `backend/package.json`. At the moment, that file still contains only the default `test` script.
 
-### Frontend Setup
+### 2) Frontend
 
-1. Navigate to the frontend directory:
+Install dependencies:
+
 ```bash
 cd frontend
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Create a `.env` file (if needed):
-```env
-VITE_API_URL=http://localhost:3000
-```
+Run the development server:
 
-4. Run the development server:
 ```bash
 npm run dev
 ```
 
-5. For production build:
+Build for production:
+
 ```bash
 npm run build
 ```
 
-The application will run at `http://localhost:5173`
+Preview the production build:
 
-### Machine Learning Model Setup
-
-1. Navigate to the model directory:
 ```bash
-cd model
+npm run preview
 ```
 
-2. Install Python dependencies:
+### 3) Machine Learning Model
+
+Go to the machine learning folder inside backend:
+
+```bash
+cd backend/model
+```
+
+Install Python dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Verify the model is in place:
+Check that the model file exists:
+
 ```bash
 ls saved_model/model.pkl
 ```
 
-4. Test predictions (optional):
+Run a prediction test (if the script supports JSON input in this format):
+
 ```bash
 python predict.py '{"product_id": 1, "previous_inventory": 100, "units_sold": 50, "units_ordered": 30}'
 ```
 
-## 🔑 Key Features
+## Key Features
 
-- ✅ User authentication with JWT
-- ✅ Password encrypted with Bcrypt
-- ✅ CORS support for cross-domain communication
-- ✅ Structured MySQL database
-- ✅ Responsive interface with Tailwind CSS
-- ✅ Page navigation with React Router
-- ✅ Inventory prediction using Machine Learning
-- ✅ Product management (CRUD operations)
-- ✅ Transaction tracking
-- ✅ Role-based access control
+- User authentication with JWT
+- Password hashing with Bcrypt
+- Product and transaction management
+- Role-based access control
+- Modern React frontend with Tailwind CSS
+- Machine learning-based inventory prediction
 
-## 📊 API Endpoints
+## API Endpoints
 
-### Authentication
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/auth/login` | User login |
-| POST | `/api/auth/register` | User registration |
+> The endpoints below follow the previous documentation and may need to be adjusted if the backend implementation has changed.
+
+### Auth
+- `POST /api/auth/login`
+- `POST /api/auth/register`
 
 ### Products
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/products` | Get all products |
-| GET | `/api/products/:id` | Get product by ID |
-| POST | `/api/products` | Add new product |
-| PUT | `/api/products/:id` | Update product |
-| DELETE | `/api/products/:id` | Delete product |
+- `GET /api/products`
+- `GET /api/products/:id`
+- `POST /api/products`
+- `PUT /api/products/:id`
+- `DELETE /api/products/:id`
 
 ### Transactions
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/transactions` | Get all transactions |
-| POST | `/api/transactions` | Create transaction |
-| PUT | `/api/transactions/:id` | Update transaction |
-| DELETE | `/api/transactions/:id` | Delete transaction |
+- `GET /api/transactions`
+- `POST /api/transactions`
+- `PUT /api/transactions/:id`
+- `DELETE /api/transactions/:id`
 
 ### Predictions
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/predictions` | Generate inventory prediction |
+- `POST /api/predictions`
 
-## 🔒 Security
+## Important Notes
 
-- Passwords are hashed using Bcrypt
-- Authentication using JWT tokens
-- CORS configured for security
-- Environment variables for sensitive information
-- Role-based access control middleware
-- Request validation and sanitization
+- Do not commit `.env` files to the repository.
+- Make sure MySQL and all environment variables are configured before running the app.
+- If you want, I can also make this README fully reflect the latest actual file structure by checking the backend and frontend source files in detail.
 
-## 📝 Scripts
+## Project Info
 
-### Backend
-```bash
-npm start   # Run the server
-```
-
-### Frontend
-```bash
-npm run dev      # Development server
-npm run build    # Build for production
-npm run lint     # Run ESLint
-npm run preview  # Preview production build
-```
-
-### Model
-```bash
-python predict.py '<json_input>'  # Run prediction
-```
-
-## 🧠 ML Model Details
-
-The prediction model uses a trained machine learning model to forecast inventory levels based on:
-- Product ID
-- Previous inventory
-- Units sold
-- Units ordered
-
-**Model Type:** Scikit-learn based model  
-**Input Format:** JSON with feature fields  
-**Output:** Predicted inventory levels
-
-## 👤 Project Info
-
-**Created by:** [StevNath](https://github.com/StevNath)
-
-**Last Updated:** 2026-06-10
-
-**Readme Generated by Copilot**
----
-
-**Note:** Make sure all environment variables are properly configured before running the application. Never commit `.env` files to version control.
+- **Owner:** [StevNath](https://github.com/StevNath)
+- **Repository:** [StevNath/inventaris-hba](https://github.com/StevNath/inventaris-hba)
+- **Last updated:** 2026-07-19

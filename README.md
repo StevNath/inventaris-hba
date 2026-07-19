@@ -1,13 +1,14 @@
 # Inventaris HBA
 
-Inventaris HBA is a full-stack inventory management application built to help manage products, transactions, and inventory prediction more efficiently.
+Inventaris HBA is a full-stack inventory management application designed to manage products, transactions, and inventory prediction more efficiently.
 
 ## Overview
 
-This repository contains three main parts:
+This repository is organized into three main parts:
+
 - **backend/**: Express.js + MySQL2 API for authentication, products, transactions, and predictions
-- **frontend/**: React 19 + Vite user interface
-- **backend/model/**: Machine learning assets and dependencies for inventory prediction
+- **frontend/**: React 19 + Vite web interface
+- **backend/model/**: Python machine learning assets for inventory prediction
 
 ## Tech Stack
 
@@ -34,21 +35,36 @@ This repository contains three main parts:
 - NumPy
 - Joblib
 
-## Project Structure
+## Updated Project Structure
 
 ```text
 inventaris-hba/
+├── .vscode/
 ├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
 │   ├── model/
 │   │   ├── saved_model/
-│   │   │   └── model.pkl
+│   │   ├── .gitignore
 │   │   ├── predict.py
 │   │   └── requirements.txt
+│   ├── routes/
+│   ├── .gitignore
 │   ├── package.json
-│   └── ...
+│   ├── package-lock.json
+│   └── server.js
 ├── frontend/
+│   ├── public/
+│   ├── routes/
+│   ├── src/
+│   ├── .gitignore
+│   ├── README.md
+│   ├── eslint.config.js
+│   ├── index.html
 │   ├── package.json
-│   └── ...
+│   ├── package-lock.json
+│   └── vite.config.js
 └── README.md
 ```
 
@@ -63,7 +79,7 @@ cd backend
 npm install
 ```
 
-Create a `.env` file in the `backend/` folder:
+Create a `.env` file inside `backend/`:
 
 ```env
 PORT=3000
@@ -74,13 +90,13 @@ DB_NAME=inventaris_hba
 JWT_SECRET=your_secret_key
 ```
 
-Run the server:
+Run the backend server:
 
 ```bash
 npm start
 ```
 
-> Note: make sure a `start` script exists in `backend/package.json`. At the moment, that file still contains only the default `test` script.
+> Note: Ensure a `start` script exists in `backend/package.json`.
 
 ### 2) Frontend
 
@@ -91,7 +107,7 @@ cd frontend
 npm install
 ```
 
-Run the development server:
+Run development server:
 
 ```bash
 npm run dev
@@ -103,7 +119,7 @@ Build for production:
 npm run build
 ```
 
-Preview the production build:
+Preview production build:
 
 ```bash
 npm run preview
@@ -111,7 +127,7 @@ npm run preview
 
 ### 3) Machine Learning Model
 
-Go to the machine learning folder inside backend:
+Go to the machine learning folder:
 
 ```bash
 cd backend/model
@@ -129,7 +145,7 @@ Check that the model file exists:
 ls saved_model/model.pkl
 ```
 
-Run a prediction test (if the script supports JSON input in this format):
+Run a prediction test (if `predict.py` supports this JSON input format):
 
 ```bash
 python predict.py '{"product_id": 1, "previous_inventory": 100, "units_sold": 50, "units_ordered": 30}'
@@ -137,7 +153,7 @@ python predict.py '{"product_id": 1, "previous_inventory": 100, "units_sold": 50
 
 ## Key Features
 
-- User authentication with JWT
+- JWT-based user authentication
 - Password hashing with Bcrypt
 - Product and transaction management
 - Role-based access control
@@ -146,7 +162,7 @@ python predict.py '{"product_id": 1, "previous_inventory": 100, "units_sold": 50
 
 ## API Endpoints
 
-> The endpoints below follow the previous documentation and may need to be adjusted if the backend implementation has changed.
+> Endpoints may need adjustments if backend implementation changes.
 
 ### Auth
 - `POST /api/auth/login`
@@ -170,9 +186,8 @@ python predict.py '{"product_id": 1, "previous_inventory": 100, "units_sold": 50
 
 ## Important Notes
 
-- Do not commit `.env` files to the repository.
-- Make sure MySQL and all environment variables are configured before running the app.
-- If you want, I can also make this README fully reflect the latest actual file structure by checking the backend and frontend source files in detail.
+- Do not commit `.env` files.
+- Make sure MySQL and all required environment variables are configured before running the app.
 
 ## Project Info
 
